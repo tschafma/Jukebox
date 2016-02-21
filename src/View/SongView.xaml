@@ -1,0 +1,37 @@
+﻿<UserControl x:Class="Jukebox.View.SongView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Jukebox.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"
+             Background="#f2f2f2">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type TextBlock}" >
+            <Setter Property="Padding" Value="0, 10, 0, 5" />
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <!--<TextBlock Padding="5" Text="Now Playing" Background="#fbfbfb" Foreground="#404040" TextAlignment="Center" Grid.Row="1" FontSize="14.667" FontWeight="Bold"/>-->
+        <Image Source="{Binding Image}" Width="400" Margin="0, 0, 0, 0" Grid.Row="0" />
+        <TextBlock Text="{Binding Title}" Grid.Row="2" Background="#f2f2f2" Foreground="#505050" TextAlignment="Center" FontSize="16" />
+        <TextBlock Text="{Binding Artist}" Grid.Row="3" Background="#f2f2f2" Foreground="#727272" TextAlignment="Center" FontSize="13.333" />
+        <TextBlock Text="{Binding Duration}" Grid.Row="4" Background="#f2f2f2" Foreground="#727272" TextAlignment="Center" />
+        <Slider Name="DurationSlider"  IsEnabled="False" Grid.Row="5" Margin="10"/>
+        <MediaElement Name="MediaPlayer" LoadedBehavior="Manual" Source="{Binding MediaSourcePath}" Grid.Row="6" MediaEnded="MediaPlayer_MediaEnded" MediaOpened="MediaPlayer_MediaOpened" />
+        <!--
+        <Button Name="btnPlay" Content="Play" Command="{Binding PlayMedia}" Grid.Row="4" Height="20" VerticalAlignment="Top"/>
+        <Button Name="btnPause" Content="Pause" Command="{Binding PauseMedia}" Grid.Row="4" Height="20" VerticalAlignment="Bottom" />
+        -->
+    </Grid>
+</UserControl>

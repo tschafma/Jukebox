@@ -1,0 +1,278 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Jukebox.Data.Song">
+    <Position X="3.5" Y="0.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAIACkEIEABBAAACAAIAAQBAAIAAAAAAAAAA=</HashCode>
+      <FileName>Model\Song.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Jukebox.Album">
+    <Position X="1.25" Y="0.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAIAAAAAAAAAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Album.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Jukebox.Playlist">
+    <Position X="1.25" Y="2.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgEBBAABEAAgAAAAAABAIAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Playlist.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Jukebox.User">
+    <Position X="5.5" Y="0.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAABgAEAAQBAAAAACAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Model\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Jukebox.PlaylistViewModel">
+    <Position X="3" Y="7" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAgEBAAAAEAAAACAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\PlaylistViewModel.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Playlist" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Jukebox.SongViewModel">
+    <Position X="5" Y="7" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>ACARCAAAAAACgEIEAAIAAAiAAIAAAJAAAAQACEAAAAA=</HashCode>
+      <FileName>ViewModel\SongViewModel.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Song" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Jukebox.UserViewModel">
+    <Position X="8.75" Y="7" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>gAABAAAAAAAAgAAAAQAAAAAAAAAAAIgAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\UserViewModel.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="User" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Jukebox.ViewModel.ViewModelBase">
+    <Position X="5.5" Y="4.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAIAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\ViewModelBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Jukebox.PlaylistListViewModel">
+    <Position X="1.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAARAAAAACABAAAAAQAAAQAAAQAAAIAAABAAAAAAABA=</HashCode>
+      <FileName>ViewModel\PlaylistListViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Jukebox.BaseRepository">
+    <Position X="7.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAgAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Database\Respositories\BaseRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Jukebox.PlaylistRepository">
+    <Position X="7.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAiBBACAAAAAAAAAAAAAAAAQEAAAAAAAAABA=</HashCode>
+      <FileName>Database\Respositories\PlaylistRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Jukebox.SongRepository">
+    <Position X="9.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgACACAAAAAAIAAAAEAEAAAAAAgQAAAAAAIAI=</HashCode>
+      <FileName>Database\Respositories\SongRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Jukebox.UserRepository">
+    <Position X="9.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAAAAAAAAIAgEAIAAAAAAAA=</HashCode>
+      <FileName>Database\Respositories\UserRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Jukebox.SongListViewModel">
+    <Position X="7" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEABAAAAAAAAABAQAAIEIAAABQAAAIIAABAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\SongListViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Jukebox.ViewModel.MainViewModel">
+    <Position X="10.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAERAAQACEABQAAYoAAACIQIIAIEAoIGAAAAACABSCE=</HashCode>
+      <FileName>ViewModel\MainViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Jukebox.ViewModel.MenuViewModel">
+    <Position X="12.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>iMARBAAgAIBgQAAAASsAAAgACAAAQoQQAAICAAIAKGE=</HashCode>
+      <FileName>ViewModel\MenuViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Jukebox.View.SongView">
+    <Position X="12" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\SongView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Jukebox.View.SongListView">
+    <Position X="13.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\SongListView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Jukebox.View.PlaylistListView">
+    <Position X="15.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\PlaylistListView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Jukebox.View.MenuBarView">
+    <Position X="17.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\MenuBarView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Jukebox.View.CreatePlaylistView">
+    <Position X="19" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\CreatePlaylistView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Jukebox.ViewModel.CreatePlaylistViewModel">
+    <Position X="14.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQNAAAAAAAAACAAAAAEECQACIAAAICQAQAAQOACAAA=</HashCode>
+      <FileName>ViewModel\CreatePlaylistViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Jukebox.ViewModel.LoginUserViewModel">
+    <Position X="16" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAgAAIAAAAAAAAAQAAAAAAAAAAQAACAAIAAAAAECE=</HashCode>
+      <FileName>ViewModel\LoginUserViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Jukebox.View.LoginUserView">
+    <Position X="20.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\LoginUserView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Jukebox.Helpers.Messenger">
+    <Position X="12" Y="3" Width="1.5" />
+    <NestedTypes>
+      <Class Name="Jukebox.Helpers.Messenger.MessengerKey" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Helpers\Messenger.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAEAAIAAAAAABAAAAAAAAACAAEAA=</HashCode>
+      <FileName>Helpers\Messenger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Jukebox.Helpers.RelayCommand">
+    <Position X="13.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAEACAAQAAESAAAAAAABAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>Helpers\RelayCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Jukebox.ViewModel.RegisterViewModel">
+    <Position X="17.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAUQBAAAAAAAAAAAAQAAAAAEAAAAAACCAQIAAEAAEAA=</HashCode>
+      <FileName>ViewModel\RegisterViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Jukebox.View.RegisterView">
+    <Position X="22.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\RegisterView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Jukebox.AddSongViewModel">
+    <Position X="19.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQACAAAAIACAEIEABAQACQIAMAAAIgwIACAAAAAAAA=</HashCode>
+      <FileName>ViewModel\AddSongViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Jukebox.View.AddSongView">
+    <Position X="24.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\AddSongView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Jukebox.ViewModel.EditPlaylistViewModel">
+    <Position X="21.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>FARREAAEAIAIAUAGBIAAACQACwAALJGUJAAMAIAAAAA=</HashCode>
+      <FileName>ViewModel\EditPlaylistViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Jukebox.View.EditPlaylistView" Collapsed="true">
+    <Position X="26" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\EditPlaylistView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Jukebox.ViewModel.EditSongViewModel">
+    <Position X="23" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>hAYCAAAAAIACAEAAABJAIigEAIAEAoCAIAAAAAAAAgA=</HashCode>
+      <FileName>ViewModel\EditSongViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Jukebox.View.EditSongView" Collapsed="true">
+    <Position X="27.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\EditSongView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Jukebox.ViewModel.CreditTransactionViewModel">
+    <Position X="24.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAAAAAIAAAAAIAABAAAA=</HashCode>
+      <FileName>ViewModel\CreditTransactionViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
