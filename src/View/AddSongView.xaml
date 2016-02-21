@@ -1,0 +1,148 @@
+﻿<UserControl x:Class="Jukebox.View.AddSongView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Jukebox.View"
+             xmlns:val="clr-namespace:Jukebox.Helpers.Validation"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="300"
+             MinWidth="230"
+             MaxWidth="250">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="Foreground"
+                    Value="#666" />
+        </Style>
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="BorderThickness"
+                    Value="0,0,0,1" />
+            <Setter Property="BorderBrush"
+                    Value="#aaa" />
+            <Setter Property="Background"
+                    Value="Transparent" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Border Name="_Border"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}">
+                            <ScrollViewer x:Name="PART_ContentHost"
+                                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsFocused"
+                                     Value="True">
+                                <Setter TargetName="_Border"
+                                        Property="BorderBrush"
+                                        Value="CornflowerBlue" />
+                                <Setter TargetName="_Border"
+                                        Property="BorderThickness"
+                                        Value="0,0,0,2" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver"
+                                     Value="true">
+                                <Setter Property="Cursor"
+                                        Value="IBeam" />
+                            </Trigger>
+                            <Trigger Property="Validation.HasError"
+                                     Value="true">
+                                <Setter Property="ToolTip"
+                                        Value="{Binding RelativeSource={x:Static RelativeSource.Self},
+                                        Path=(Validation.Errors)[0].ErrorContent}" />
+                                <Setter TargetName="_Border"
+                                        Property="BorderBrush"
+                                        Value="#FFFB7575" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <DataTemplate x:Key="ArtItemTemplate">
+            <Grid>
+                <Image Source="{Binding}" Width="64" Height="64" HorizontalAlignment="Center"/>
+            </Grid>
+        </DataTemplate>
+        <ControlTemplate x:Key="validationTemplate">
+            <DockPanel>
+                <TextBlock Foreground="Red" FontSize="20">!</TextBlock>
+                <AdornedElementPlaceholder/>
+            </DockPanel>
+        </ControlTemplate>
+        <Style x:Key="textBoxInError" TargetType="{x:Type TextBox}">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="true">
+                    <Setter Property="ToolTip" Value="{Binding RelativeSource={x:Static RelativeSource.Self},
+                        Path=(Validation.Errors)[0].ErrorContent}"/>
+                    <Setter Property="Background" Value="#FFFFDCDC" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="Add Song" Padding="0, 5" Grid.ColumnSpan="2"
+                   FontSize="18" />
+        <TextBox Validation.ErrorTemplate="{StaticResource validationTemplate}" Name="txtPath" Margin="0,0,-40,1" VerticalAlignment="Bottom" Grid.Row="1" Grid.Column="0">
+            <TextBox.Text>
+                <Binding Path="SongPath" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <val:RequiredRule ValidationStep="UpdatedValue" />
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <Button Content="Browse . . ." Margin="45,0,0,0" VerticalAlignment="Bottom" Grid.Row="1" Grid.Column="1" Command="{Binding BrowseSongCommand}"/>
+        <TextBox Validation.ErrorTemplate="{StaticResource validationTemplate}" Name="txtTitle" Grid.Row="2" Grid.ColumnSpan="2" Margin="0,0,0,1" Height="21" VerticalAlignment="Bottom">
+            <TextBox.Text>
+                <Binding Path="Title" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <val:TitleRule ValidationStep="UpdatedValue"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <TextBox Validation.ErrorTemplate="{StaticResource validationTemplate}" Name="txtArtist" Grid.Row="3" Grid.ColumnSpan="2" Height="21" VerticalAlignment="Bottom">
+            <TextBox.Text>
+                <Binding Path="Artist" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <val:TitleRule ValidationStep="UpdatedValue" />
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <TextBox Validation.ErrorTemplate="{StaticResource validationTemplate}" Name="txtDuration" Grid.Row="4" Grid.ColumnSpan="2" Margin="0,0,0,1" Height="21" VerticalAlignment="Bottom">
+            <TextBox.Text>
+                <Binding Path="Duration" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <val:DurationRule ValidationStep="UpdatedValue" />
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <ListBox Name="listArt" Margin="0,28,0,0" SelectedItem="{Binding SelectedImage}" ItemsSource="{Binding ArtCollection}" ItemTemplate="{StaticResource ArtItemTemplate}" Grid.Row="5" Grid.ColumnSpan="2"  MinHeight="21" MaxHeight="120" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.CanContentScroll="True" VerticalAlignment="Bottom" />
+        <Button Name="btnConfirm" Margin="0, 10, 0, 0" Content="Add Song" Grid.Row="6" Grid.ColumnSpan="2" Command="{Binding AddNewSongCommand}"/>
+        <Button Name="btnCancel" Margin="0, 10, 0, 0" Content="Cancel" Grid.Row="7" Grid.ColumnSpan="2" Command="{Binding CloseAddNewSongViewCommand}"/>
+
+        <Label Content="Pick a Song" Margin="0, 0, 0, 21" Padding="0, 5" Grid.Row="1" Height="28" VerticalAlignment="Top"  HorizontalAlignment="Left" />
+        <Label Content="Title" Margin="0, 0, 0, 21" Padding="0, 5" Grid.Row="2" Height="28" VerticalAlignment="Top"  HorizontalAlignment="Left" />
+        <Label Content="Artist" Margin="0, 0, 0, 21" Padding="0, 5" Grid.Row="3" Height="28" VerticalAlignment="Top" HorizontalAlignment="Left"  />
+        <Label Content="Duration" Margin="0, 0, 0, 21" Padding="0, 5" Grid.Row="4" Height="28" VerticalAlignment="Top" HorizontalAlignment="Left"  />
+        <Label Content="Art" Margin="0, 0, 0, 21" Padding="0, 5" Grid.Row="5" Height="28" VerticalAlignment="Top" HorizontalAlignment="Left" />
+    </Grid>
+</UserControl>

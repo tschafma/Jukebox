@@ -1,0 +1,76 @@
+﻿<Window x:Class="Jukebox.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Jukebox"
+        xmlns:v="clr-namespace:Jukebox.View"
+        xmlns:vm="clr-namespace:Jukebox.ViewModel"
+        mc:Ignorable="d"
+        Title="JukeBox">
+    <Window.Resources>
+        <vm:MainViewModel x:Key="MainViewModel"/>
+        <DataTemplate DataType="{x:Type local:PlaylistListViewModel}">
+            <v:PlaylistListView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type local:SongListViewModel}">
+            <v:SongListView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type local:SongViewModel}">
+            <v:SongView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:MenuViewModel}">
+            <v:MenuBarView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:CreatePlaylistViewModel}">
+            <v:CreatePlaylistView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:LoginUserViewModel}">
+            <v:LoginUserView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:RegisterViewModel}">
+            <v:RegisterView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type local:AddSongViewModel}">
+            <v:AddSongView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:EditPlaylistViewModel}">
+            <v:EditPlaylistView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:EditSongViewModel}">
+            <v:EditSongView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:CreditTransactionViewModel}">
+            <v:CreditTransactionView />
+        </DataTemplate>
+    </Window.Resources>
+    <Grid DataContext="{StaticResource MainViewModel}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="173*"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Border Name="MenuBar" Grid.Row="0" Grid.Column="0" Background="#ddd">
+            <ContentControl Content="{Binding MenuViewModel}" />
+        </Border>
+        <Border Name="VariableColumn" Grid.Row="1" Grid.Column="0" Background="#f2f2f2" BorderBrush="White" BorderThickness="0,2,0,0">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <ContentControl Content="{Binding VariableViewModel}"/>
+            </ScrollViewer>
+        </Border>
+        <Border Grid.Column="1" Grid.RowSpan="2" Margin="0,0,0,1" >
+            <ContentControl  Content="{Binding PlaylistListViewModel}" />
+        </Border>
+        <Border Grid.Column="2" Grid.RowSpan="2" Margin="0,1">
+            <ContentControl Content="{Binding SongListViewModel}" />
+        </Border>
+        <Border Grid.Column="3" Grid.RowSpan="2" BorderThickness="0">
+            <ContentControl Content="{Binding SongViewModel}" />
+        </Border>
+    </Grid>
+</Window>
