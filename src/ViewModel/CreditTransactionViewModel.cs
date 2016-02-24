@@ -63,6 +63,7 @@ namespace Jukebox.ViewModel
             Messenger.Default.Send<bool>(click, "CloseCreditTransactionView");
         }
 
+        #region Properties
         public string CurrentCreditsHeader
         {
             get { return "Your Credits: " + CurrentCredits.ToString(); }
@@ -174,6 +175,7 @@ namespace Jukebox.ViewModel
         {
             get { return _closeCreditTransactionViewCommand; }
             set { _closeCreditTransactionViewCommand = value; }
-        }
+        } 
+        #endregion
     }
 }

@@ -42,6 +42,7 @@ namespace Jukebox.ViewModel
             _viewModels.Add(_songViewModel);
             _viewModels.Add(_menuViewModel);
 
+            #region Registering for ViewModel Commands
             // Listens for a click in menuViewModel
             Messenger.Default.Register<bool>(this, SetCreatePlaylistViewModel, "CreatePlaylistView");
             Messenger.Default.Register<bool>(this, CloseCreatePlaylistView, "CloseCreatePlaylistView");
@@ -74,14 +75,15 @@ namespace Jukebox.ViewModel
             Messenger.Default.Register<bool>(this, CloseCreditTransactionView, "CloseCreditTransactionView");
 
             // Listens for LoginViewModel successful login, or a RegisterViewModel sucessful registration
-            Messenger.Default.Register<User>(this, LoginUser,"UserLogin");
+            Messenger.Default.Register<User>(this, LoginUser, "UserLogin");
 
             // Listens for when song is selected, changed, etc
             Messenger.Default.Register<bool>(this, UserPlayedSong, "UserCreditCheck");
 
             // Listens from MenuViewModel for delete commands
             Messenger.Default.Register<Playlist>(this, DeletePlaylist, "DeletePlaylist");
-            Messenger.Default.Register<Song>(this, DeleteSong, "DeleteSong");
+            Messenger.Default.Register<Song>(this, DeleteSong, "DeleteSong"); 
+            #endregion
 
             User = new User();
         }

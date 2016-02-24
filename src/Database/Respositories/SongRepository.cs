@@ -23,6 +23,11 @@ namespace Jukebox
             _songs = LoadSongs(connection, playlistid);
         }
 
+        protected override void OnDispose()
+        {
+            _songs.Clear();
+        }
+
         private List<Song> LoadSongs(SqlConnection connection, int playlistid = 0)
         {
             if(connection == null)
@@ -161,6 +166,7 @@ namespace Jukebox
             }
         }
 
+        #region Public Methods
         /// <summary>
         /// Public interface for selecting songs from a particular Playlist (by ID)
         /// </summary>
@@ -205,11 +211,8 @@ namespace Jukebox
         public void DeleteSong(Song song)
         {
             DeleteSongFromDB(connection, song);
-        }
+        } 
+        #endregion
 
-        protected override void OnDispose()
-        {
-            _songs.Clear();
-        }
     }
 }

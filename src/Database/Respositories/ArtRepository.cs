@@ -36,6 +36,7 @@ namespace Jukebox.Database.Respositories
             return paths;
         }
 
+        #region Public Methods
         public List<string> GetPlaylistArt()
         {
             return LoadArtPaths(_playlistArt, _filter);
@@ -52,7 +53,8 @@ namespace Jukebox.Database.Respositories
             paths.InsertRange(0, GetPlaylistArt());
             paths.InsertRange(paths.Count - 1, GetAlbumArt());
             return paths;
-        }
+        } 
+        #endregion
 
         public List<string> ArtPaths
         {
