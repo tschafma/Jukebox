@@ -19,6 +19,11 @@ namespace Jukebox
             StoreAllPlaylists();
         }
 
+        protected override void OnDispose()
+        {
+            _playlists.Clear();
+        }
+
         private List<Playlist> LoadPlaylists(SqlConnection connection, int userid = 0)
         {
             List<Playlist> _listToAdd = new List<Playlist>();
@@ -41,6 +46,7 @@ namespace Jukebox
             return _listToAdd;
         }
 
+        #region Public Methods
         public List<Playlist> GetStoredPlaylists()
         {
             return new List<Playlist>(_playlists);
@@ -58,7 +64,7 @@ namespace Jukebox
 
         public void SavePlaylist(Playlist playlist)
         {
-            using(SqlCommand cmd = new SqlCommand("UPDATE [dbo].[Playlists] SET Playlist_Title=@title, Playlist_Image=@image, User_ID=@userid WHERE Playlist_ID = @playlistid", connection))
+            using (SqlCommand cmd = new SqlCommand("UPDATE [dbo].[Playlists] SET Playlist_Title=@title, Playlist_Image=@image, User_ID=@userid WHERE Playlist_ID = @playlistid", connection))
             {
                 cmd.Parameters.AddWithValue("@title", playlist.Title);
                 cmd.Parameters.AddWithValue("@image", playlist.Image);
@@ -86,10 +92,10 @@ namespace Jukebox
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@playlistid", playlist.ID);
                     cmd.Parameters.AddWithValue("@songid", playlist.Songs[i].ID);
- 
+
                     connection.Open();
                     cmd.ExecuteNonQuery();
-                    connection.Close(); 
+                    connection.Close();
                 }
             }
         }
@@ -97,7 +103,7 @@ namespace Jukebox
         public void AddNewPlaylist(Playlist playlist, int userid = 0)
         {
             int newid = 0;
-            using(SqlCommand cmd = new SqlCommand("INSERT INTO [dbo].[Playlists] OUTPUT INSERTED.Playlist_ID VALUES (@title, @image, @userid)", connection))
+            using (SqlCommand cmd = new SqlCommand("INSERT INTO [dbo].[Playlists] OUTPUT INSERTED.Playlist_ID VALUES (@title, @image, @userid)", connection))
             {
                 cmd.Parameters.AddWithValue("@title", playlist.Title);
                 cmd.Parameters.AddWithValue("@image", playlist.Image);
@@ -108,7 +114,7 @@ namespace Jukebox
                 playlist.ID = newid;
             }
 
-            foreach(Song song in playlist.Songs)
+            foreach (Song song in playlist.Songs)
             {
                 using (SqlCommand cmd = new SqlCommand("INSERT INTO [dbo].[Songs_For_Playlist] VALUES (@songid, @playlistid)", connection))
                 {
@@ -123,7 +129,7 @@ namespace Jukebox
 
         public void DeletePlaylist(Playlist playlist)
         {
-            using(SqlCommand cmd = new SqlCommand("DELETE FROM [dbo].[Playlists] WHERE Playlist_ID=@playlistid", connection))
+            using (SqlCommand cmd = new SqlCommand("DELETE FROM [dbo].[Playlists] WHERE Playlist_ID=@playlistid", connection))
             {
                 cmd.Parameters.AddWithValue("@playlistid", playlist.ID);
                 connection.Open();
@@ -138,11 +144,8 @@ namespace Jukebox
                 cmd.ExecuteNonQuery();
                 connection.Close();
             }
-        }
+        } 
+        #endregion
 
-        protected override void OnDispose()
-        {
-            _playlists.Clear();
-        }
     }
 }

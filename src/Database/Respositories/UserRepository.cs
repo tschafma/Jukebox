@@ -76,6 +76,7 @@ namespace Jukebox
             }
         }
 
+        #region Public Methods
         public User GetUser(string username, string password)
         {
             User user = LoadUser(username, password);
@@ -91,6 +92,7 @@ namespace Jukebox
         public void SaveUser(User user)
         {
             UpdateUser(user);
-        }
+        } 
+        #endregion
     }
 }
